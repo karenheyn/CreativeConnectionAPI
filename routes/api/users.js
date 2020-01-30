@@ -5,6 +5,7 @@ const User = require("../../models/User");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const jwt = require("jsonwebtoken");
+const config = require("config");
 //@route POST api/users
 //@desc register user
 //@access Public
@@ -48,14 +49,23 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
 
       await user.save();
-      // return json web token
-      res.send("user registered");
+
+      const payload = {
+        user: {
+          id: user.id
+        }
+      };
+
+      const token = config.get("jwtToken");
+
+      jwt.sign(payload, token, { expiresIn: 36000 }, (err, token) => {
+        if (err) throw err;
+        res.json({ token });
+      });
     } catch (err) {
-      console.error(error.message);
+      console.error(err.message);
       res.status(500).send("server error");
     }
-
-    res.send("User Route");
   }
 );
 
