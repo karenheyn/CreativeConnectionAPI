@@ -6,9 +6,7 @@ const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const bcrypt = require("bcryptjs");
-//@route GET api/auth
-//@desc test route
-//@access Public
+
 router.get("/", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -45,7 +43,7 @@ router.post(
 
       const isMatch = await bcrypt.compare(password, user.password);
 
-      if (!ismatch) {
+      if (!isMatch) {
         return res
           .status(400)
           .json({ errors: [{ message: "Invalid credentials" }] });

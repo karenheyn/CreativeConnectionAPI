@@ -51,9 +51,7 @@ router.post(
       await user.save();
 
       const payload = {
-        user: {
-          id: user.id
-        }
+        user: { id: user.id }
       };
 
       const token = config.get("jwtToken");
