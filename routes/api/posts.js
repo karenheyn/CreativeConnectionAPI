@@ -125,6 +125,7 @@ router.put("/like/:id", auth, async (req, res) => {
     res.json(500).send("Server Error");
   }
 });
+
 // @route    PUT api/posts/unlike/:id
 // @desc     Like a post
 // @access   Private
@@ -187,9 +188,9 @@ router.post(
 
       post.comments.unshift(newComment);
 
-      const post = await post.save();
+      await post.save();
 
-      res.json(post);
+      res.json(post.comment);
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
