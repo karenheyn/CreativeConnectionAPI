@@ -5,7 +5,7 @@
 }
 
 .navbar {
-    background: var(--purple);
+    background: var(--dark-lavender);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
