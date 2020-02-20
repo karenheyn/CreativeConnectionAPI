@@ -5,18 +5,18 @@ export const Navbar = () => {
     <nav className='navbar'>
       <h1>
         <a href='index.html'>
-          <i className='fab fa-cuttlefish'></i> Creative Connection
+          <i class='fas  fa-2x fa-map-signs'></i>
         </a>
       </h1>
       <ul>
         <li>
-          <a href='profiles.html'></a>
+          <a href='profiles.html'>poo</a>
         </li>
         <li>
-          <a href='register.html'></a>
+          <a href='register.html'>poo</a>
         </li>
         <li>
-          <a href='login.html'></a>
+          <a href='login.html'>poo</a>
         </li>
         <li></li>
       </ul>
