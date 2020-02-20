@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background: var(--purple);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.menu-right {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    text-decoration: none;
+}
